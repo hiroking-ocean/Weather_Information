@@ -1,2 +1,26 @@
-<h1>Weather#index</h1>
-<p>Find me in app/views/weather/index.html.erb</p>
+<div class="container">
+  <div class="navbar">time navigation</div>
+  <div class="row">
+    <div class="contents col-md-6 col-sm-12">
+      <%= render partial: 'time' %>
+      <p>ぐりっとテスト</p>
+    </div>
+    <div class="contents col-md-6 col-sm-12">
+      <%= render partial: 'chart' %>
+      <p>ぐりっとテスト</p>
+    </div>
+    <div class="contents col-md-6 col-sm-12">
+      <%= render partial: 'wind' %>
+      <p>ぐりっとテスト</p>
+    </div>
+    <div class="contents col-md-6 col-sm-12">
+      <%= render partial: 'wave' %>
+      <p>ぐりっとテスト</p>
+    </div>
+  </div>
+</div>
+<style>
+  .contents{
+    padding: 50px 50px
+  }
+</style>
