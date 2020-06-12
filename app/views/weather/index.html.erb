@@ -1,25 +1,30 @@
+<%= render partial: 'layouts/header' %>
+
 <div class="container">
-  <div class="navbar">time navigation</div>
+  <%= render partial: 'nav' %>
   <div class="row">
     <div class="contents col-sm-12 col-md-6 ">
       <%= render partial: 'time' %>
-      <p>ぐりっとテスト</p>
+      <p>時間</p>
     </div>
     <div class="contents col-sm-12 col-md-6">
       <%= render partial: 'chart' %>
+      <p>天気図</p>
     </div>
   </div>
   <div class="row">
     <div class="contents col-sm-12 col-md-6">
       <%= render partial: 'wind' %>
-      <p>ぐりっとテスト</p>
+      <p>風予想</p>
     </div>
     <div class="contents col-sm-12 col-md-6">
       <%= render partial: 'wave' %>
-      <p>ぐりっとテスト</p>
+      <p>波予想</p>
     </div>
   </div>
 </div>
+
+<input type="button" value="ぼたん" id="btn">
 <style>
   .contents {
     padding: 20px 20px;
@@ -29,3 +34,15 @@
     width: 100%;
   }
 </style>
+
+<script>
+  $(function (){
+    $('#btn').on('click', function(){
+      $('#m').removeClass("active");
+      $('.target').addClass("active");
+    })
+  });
+
+
+  
+</script>
