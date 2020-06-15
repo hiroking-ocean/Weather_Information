@@ -19,8 +19,8 @@ module WeatherHelper
     def parse(times)
       parsed = []
       times.each do |time|
-        parse = DateTime.parse(time)
-        parsed.push(parse.to_s(:db))
+        parse = DateTime.parse(time + "+0900")
+        parsed.push(parse.to_s)
       end
       return parsed
     end
