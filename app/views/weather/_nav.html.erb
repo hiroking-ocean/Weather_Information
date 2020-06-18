@@ -1,0 +1,110 @@
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <% @names.file_name_format[:day].each_with_index do |value, i|%>
+    <a class="nav-item nav-link date <%= add_class(i,"active") %> nav-click" id="<%= i %>" data-toggle="tab"
+      href="#nav-<%= i %>" role="tab" aria-controls="nav-home" aria-selected="true"><%= value %></a>
+    <%end%>
+  </div>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+  <% @names.file_name_format[:day].each_with_index do |value, i| %>
+
+  <div class="tab-pane fade <%= add_class(i, "show") %> <%= add_class(i, "active") %>" id="nav-<%= i %>" role="tabpanel"
+    aria-labelledby="nav-hom-tab">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+      <% @names.file_name_format[:hour][i].each_with_index do |hour, n| %>
+
+      <li class="nav-item hours" id="hour-<%= i.to_s + "in" + n.to_s %>">
+        <a class="nav-link click" id="<%= @names.file_name_format[:index][i][n] %>" data-toggle="pill" href="#"
+          role="tab" aria-selected="<%= add_class(n, "true", "false") %>"><%= hour %></a>
+      </li>
+
+      <% end %>
+    </ul>
+  </div>
+
+  <%end%>
+</div>
+
+
+<script>
+  function to_datetime(str) {
+    var year = str.substr(0, 4)
+    var month = str.substr(4, 2)
+    var day = str.substr(6, 2)
+    var hour = str.substr(8, 2) + ":00:00"
+    var daystr = year + "/" + month + "/" + day + " " + hour
+    var date = new Date(daystr)
+    return date
+  }
+
+  function controller_gen(gon_array) {
+    return_array = []
+    var n = 0;
+    for (var i = 0, len = gon.sorted.length; i < len; ++i) {
+      if (n == 0) {
+        var r = 0;
+      } else {
+        var r = n - 1;
+      }
+      if (gon.sorted[i] === gon_array[n]) {
+        n++
+        r++
+      }
+      if (gon.sorted[i] === gon_array[0]) {
+        return_array.push(gon_array[0])
+      } else {
+        return_array.push(gon_array[r]);
+      }
+
+    }
+    return return_array
+  }
+
+  function find_index(time, kind) {
+    kind_of_array = { time: gon.sorted, chart: gon.chart, wind: gon.wind, wave: gon.wave }
+    gon_array = kind_of_array[kind]
+    controller_array = controller_gen(gon_array)
+    index = gon.sorted.indexOf(time)
+    controller_array.indexOf(index)
+    return Number(gon_array.findIndex(item => item == controller_array[index]))
+  }
+
+  // ここからjquery
+  $(function () {
+    
+    $('#hour-0in0 a').addClass('active')
+
+    function carousel_controll(id){
+      $('#TimeImageControll').carousel(find_index(id, 'time'))
+      $('#ChartImageControll').carousel(find_index(id, 'chart'))
+      $('#WindImageControll').carousel(find_index(id, 'wind'))
+      $('#WaveImageControll').carousel(find_index(id, 'wave'))
+    }
+
+    function add_active_class(index) {
+      $('.hours a').removeClass('active')
+      i = '#hour-' + index + "in0 a"
+      $(i).addClass('active')
+      var id = $(i).attr('id')
+      console.log(id)
+      carousel_controll(id)
+    }
+
+    $('.nav-click').on('click', function() {
+      var id = $(this).attr('id')
+      add_active_class(id)
+    })
+
+    $('.click').on('click', function () {
+      var id = $(this).attr('id');
+      carousel_controll(id)
+    })
+
+
+  })
+
+
+</script>
