@@ -3,9 +3,10 @@ class WeatherController < ApplicationController
 
   def index
     @names = ImageID.new()
-    gon.sorted = @names.parse(@names.sorted)
-    gon.chart = @names.parse(@names.chart)
-    gon.wind = @names.parse(@names.wind)
-    gon.wave = @names.parse(@names.wave)
+    gon.sorted = @names.sorted
+    gon.chart = @names.chart
+    gon.wind = @names.wind
+    gon.wave = @names.wave
+    gon.formated = @names.file_name_format
   end
 end
