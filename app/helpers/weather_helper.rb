@@ -1,6 +1,6 @@
 module WeatherHelper
   
-  def add_class(index, if_active, if_false="")
+  def add_class(index, if_active="active", if_false="")
     if index == 0
       return if_active
     else 

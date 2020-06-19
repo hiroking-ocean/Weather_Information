@@ -74,14 +74,15 @@
 
   // ここからjquery
   $(function () {
-    
+
     $('#hour-0in0 a').addClass('active')
 
-    function carousel_controll(id){
-      $('#TimeImageControll').carousel(find_index(id, 'time'))
-      $('#ChartImageControll').carousel(find_index(id, 'chart'))
-      $('#WindImageControll').carousel(find_index(id, 'wind'))
-      $('#WaveImageControll').carousel(find_index(id, 'wave'))
+    function carousel_controll(id, type = "") {
+      console.log("carousel:" + id + "/" + type)
+      if (type != "time") { $('#TimeImageControll').carousel(find_index(id, 'time')) }
+      if (type != "chart") { $('#ChartImageControll').carousel(find_index(id, 'chart')) }
+      if (type != "wind") { $('#WindImageControll').carousel(find_index(id, 'wind')) }
+      if (type != "wave") { $('#WaveImageControll').carousel(find_index(id, 'wave')) }
     }
 
     function add_active_class(index) {
@@ -93,7 +94,7 @@
       carousel_controll(id)
     }
 
-    $('.nav-click').on('click', function() {
+    $('.nav-click').on('click', function () {
       var id = $(this).attr('id')
       add_active_class(id)
     })
@@ -101,6 +102,28 @@
     $('.click').on('click', function () {
       var id = $(this).attr('id');
       carousel_controll(id)
+    })
+
+    $('.chart-button').on('click', function () {
+      $('.carousel').off('slide.bs.carousel')
+      $('.chart').on('slide.bs.carousel', function (e) {
+        carousel_id = $(this).children('div').children('#' + e.to).attr('carousel-number')
+        carousel_controll(carousel_id, 'chart')
+      })
+    })
+    $('.wind-button').on('click', function () {
+      $('.carousel').off('slide.bs.carousel')
+      $('.wind').on('slide.bs.carousel', function (e) {
+        carousel_id = $(this).children('div').children('#' + e.to).attr('carousel-number')
+        carousel_controll(carousel_id, 'wind')
+      })
+    })
+    $('.wave-button').on('click', function () {
+      $('.carousel').off('slide.bs.carousel')
+      $('.wave').on('slide.bs.carousel', function (e) {
+        carousel_id = $(this).children('div').children('#' + e.to).attr('carousel-number')
+        carousel_controll(carousel_id, 'wave')
+      })
     })
 
 
