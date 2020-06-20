@@ -82,11 +82,13 @@ $(function () {
   }
 
   $('.nav-click').on('click', function () {
+    $('.carousel').off('slide.bs.carousel')
     var id = $(this).attr('id')
     add_active_class(id)
   })
 
   $('.click').on('click', function () {
+    $('.carousel').off('slide.bs.carousel')
     var id = $(this).attr('id');
     carousel_controll(id)
   })
