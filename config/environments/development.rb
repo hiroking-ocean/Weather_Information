@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.assets.compile = true #動的コンパイルを有効化
+  config.assets.css_compressor = :sass # sass-rails gemを使用している場合コメントアウトを外す
+  config.public_file_server.enabled = true # publicディレクトリ以下のアセットを返す設定
+  
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
