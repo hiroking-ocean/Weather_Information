@@ -119,4 +119,31 @@ $(function () {
       nav_bar_controll(carousel_id)
     })
   })
+  $('#ChartImageControll').on('touchstart', function () {
+    console.log('touchstart-chart')
+    $('.carousel').off('slide.bs.carousel')
+    $('.chart').on('slide.bs.carousel', function (e) {
+      carousel_id = $(this).children('div').children('#' + e.to).attr('carousel-number')
+      carousel_controll(carousel_id, 'chart')
+      nav_bar_controll(carousel_id)
+    })
+  })
+  $('#WindImageControll').on('touchstart', function () {
+    console.log('touchstart-wind')
+    $('.carousel').off('slide.bs.carousel')
+    $('.wind').on('slide.bs.carousel', function (e) {
+      carousel_id = $(this).children('div').children('#' + e.to).attr('carousel-number')
+      carousel_controll(carousel_id, 'wind')
+      nav_bar_controll(carousel_id)
+    })
+  })
+  $('#WaveImageControll').on('touchstart', function () {
+    console.log('wave')
+    $('.carousel').off('slide.bs.carousel')
+    $('.wave').on('slide.bs.carousel', function (e) {
+      carousel_id = $(this).children('div').children('#' + e.to).attr('carousel-number')
+      carousel_controll(carousel_id, 'wave')
+      nav_bar_controll(carousel_id)
+    })
+  })
 })
