@@ -78,7 +78,7 @@ module WeatherHelper
             array.push(File.basename(name, ".jpg"))
           end
         end
-        return array
+        return array.sort!
       end
 
       def with_extention(root, directry)
