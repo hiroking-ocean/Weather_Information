@@ -1,0 +1,70 @@
+
+.navbar-brand img {
+  width: 45px;
+  line-height: 35px;
+}
+.navbar-brand strong {
+  font-size: 30px;
+  padding-left: 3px;
+  line-height: 35px;
+}
+.navbar-brand {
+  padding: 0px;
+}
+
+.contents {
+  padding: 20px 20px;
+}
+
+img {
+  width: 100%;
+}
+
+// timeの時間表示
+.year-text {
+  font-size: 50px;
+  letter-spacing: 10px;
+  margin: auto;
+}
+
+.date-text {
+  font-size: 70px;
+  font-weight: 600;
+  letter-spacing: 10px;
+  margin: auto;
+}
+
+.time-text {
+  font-size: 50px;
+  letter-spacing: 10px;
+  margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+  /*　画面サイズが767px以下の場合読み込む　*/
+  .year-text {
+    font-size: 25px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    display: inline-block;
+  }
+
+  .date-text {
+    font-size: 25px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    display: inline-block;
+  }
+
+  .time-text {
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    margin: auto;
+    display: inline-block;
+  }
+  .time-text p {
+    margin: 0;
+    padding: 0;
+  }
+}
