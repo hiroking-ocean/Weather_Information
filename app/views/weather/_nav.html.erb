@@ -1,7 +1,7 @@
 <nav>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+  <div class="nav nav-tabs row" id="nav-tab" role="tablist">
     <% @names.file_name_format[:day].each_with_index do |value, i|%>
-    <a class="nav-item nav-link date <%= add_class(i,"active") %> nav-click" id="<%= i %>" data-toggle="tab"
+    <a class="nav-item nav-link date col <%= add_class(i,"active") %> nav-click" id="<%= i %>" data-toggle="tab"
       href="#nav-<%= i %>" role="tab" aria-controls="nav-home" aria-selected="true"><%= value %></a>
     <%end%>
   </div>
@@ -27,3 +27,9 @@
 
   <%end%>
 </div>
+
+<style>
+  @media screen and (max-width: 768px) {
+
+  }
+</style>
