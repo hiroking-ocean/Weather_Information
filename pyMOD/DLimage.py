@@ -23,7 +23,7 @@ chart = { 'url' : 'https://weather.yahoo.co.jp/weather/chart/'}
 
 def download_image(url_list, file_pass) :
 
-  default_pass = 'app/assets/images/'
+  default_pass = os.path.join(os.path.dirname(__file__), '../app/assets/images/')
 
   pas = default_pass + file_pass
   shutil.rmtree(pas, True)
