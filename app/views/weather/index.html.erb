@@ -2,11 +2,12 @@
 
 <div class="container">
   <% if browser.ie? then %>
-  <p>このブラウザでは正しく表示することができません（＞＜）</p>
-  <p>chromeやMicrosoft Edgeなどの最新のブラウザを使用してください</p>
-  <% end %>
+  <p>現在このブラウザでは正しく表示することができません（＞＜）</p>
+  <p>IEへ対応できるよう鋭意製作中ですが、<a href="https://www.google.co.jp/chrome/" target=”_blank”>Google Chrome</a>や<a href="https://www.microsoft.com/ja-jp/edge" target=”_blank”>Microsoft Edge</a>などの最新のブラウザを使用することをお勧めします。</p>
+  <% else %>
 
   <%= render partial: 'nav' %>
+  <% end %>
   <div class="row">
     <div class="contents col-sm-12 col-md-6 ">
       <%= render partial: 'time' %>
