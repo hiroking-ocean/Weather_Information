@@ -9,4 +9,5 @@ class WeatherController < ApplicationController
     gon.wave = @names.wave
     gon.formated = @names.file_name_format
   end
+
 end
