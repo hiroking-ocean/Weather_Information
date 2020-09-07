@@ -3,7 +3,8 @@
 <div class="container">
   <% if browser.ie? then %>
   <p>現在このブラウザでは正しく表示することができません（＞＜）</p>
-  <p>IEへ対応できるよう鋭意製作中ですが、<a href="https://www.google.co.jp/chrome/" target=”_blank”>Google Chrome</a>や<a href="https://www.microsoft.com/ja-jp/edge" target=”_blank”>Microsoft Edge</a>などの最新のブラウザを使用することをお勧めします。</p>
+  <p>IEへ対応できるよう鋭意製作中ですが、<a href="https://www.google.co.jp/chrome/" target=”_blank”>Google Chrome</a>や<a
+      href="https://www.microsoft.com/ja-jp/edge" target=”_blank”>Microsoft Edge</a>などの最新のブラウザを使用することをお勧めします。</p>
   <% else %>
 
   <%= render partial: 'nav' %>
@@ -20,11 +21,16 @@
   <div class="row">
     <div class="contents col-sm-12 col-md-6">
       <%= render partial: 'wind' %>
-      <p>風予想</p>
+      <p class="windtext">風速(m/s)</p>
+      <div class='row'>
+        <%= image_tag "windmeter.gif", :class => 'col-6 meter ' %>
+      </div>
     </div>
+
     <div class="contents col-sm-12 col-md-6">
       <%= render partial: 'wave' %>
-      <p>波予想</p>
+      <p class="wavetext">波高(m)</p>
+      <%= image_tag "wavemeter.gif"%>
     </div>
   </div>
 </div>
