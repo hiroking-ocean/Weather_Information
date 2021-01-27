@@ -46,6 +46,11 @@ img {
   letter-spacing: 5px;
 }
 
+.nav-pills{
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
 
 @media screen and (max-width: 768px) {
   /*　画面サイズが767px以下の場合読み込む　*/
