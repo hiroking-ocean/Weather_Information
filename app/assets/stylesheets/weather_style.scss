@@ -1,4 +1,3 @@
-
 .navbar-brand img {
   width: 45px;
   line-height: 35px;
@@ -46,15 +45,32 @@ img {
   letter-spacing: 5px;
 }
 
-.nav-pills{
+.nav-pills {
   overflow-x: auto;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
 
+//  時間コントロールの表示非表示
+.dr-selecter {
+  display: none;
+}
+.hide {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   /*　画面サイズが767px以下の場合読み込む　*/
-  .nav-container{
+
+  //  時間コントロールの表示非表示
+  .dr-selecter {
+    display: flex;
+  }
+  .botton_selecter {
+    display: none;
+  }
+
+  .nav-container {
     min-width: 100%;
   }
   .navbar-brand img {
@@ -88,18 +104,18 @@ img {
     margin: 0;
     padding: 0;
   }
-  .date{
+  .date {
     letter-spacing: 1px;
     font-size: 100%;
     padding: 8px 2px;
   }
 }
 
-.wavetext{
+.wavetext {
   margin: 5px 0 0 0;
 }
 
-.windtext{
+.windtext {
   margin: 5px 0 0 0px;
   padding-bottom: 9px;
 }
